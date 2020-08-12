@@ -6,7 +6,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
-app.listen( 3000,function(){
+app.listen( process.env.PORT ||3000,function(){
   console.log("Server Started on port 3000")
 });
 
