@@ -6,7 +6,12 @@
 .article-list p {
   color: #7d8285;
 }
-
+#gfgh{
+  visibility: hidden;
+}
+#kk{
+  visibility: hidden;
+}
 .article-list h2 {
   font-weight: bold;
   margin-bottom: 40px;

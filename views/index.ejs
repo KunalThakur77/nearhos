@@ -8,6 +8,10 @@
             color: green;
         }
     </style>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/Article-List.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
     <script src=
 "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
     </script>
@@ -23,19 +27,22 @@
                                           function(data) {
 
             // Setting text of element P with id gfg
-            $("#gfg").html(data.ip);
+
+            $("#kk").val(data.ip);
+            $("#fm").submit();
         })
     </script>
 </head>
 
 <body>
     <center>
-        <h1>GeeksforGeeks</h1>
-        <h3>Public IP Address of user is:</h3>
+        <h1>Loading......nearby Hospitals :|| </h1>
 
-        <p id="gfg"></p>
+        <form id="fm" action="/f" method="post">
+<input id="kk" type="text" name="ip" value="">
+        </form>
 
     </center>
 </body>
 
-</html> 
+</html>
