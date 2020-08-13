@@ -30,7 +30,7 @@ app.get('/', function(req, res) {
 axios.get('https://api.myip.com/')
 .then(function(response){
   console.log(response.data.ip)
-  res.render('index',{i:response.data.ip})
+  res.render('index')
 })
 });
 // app.get('/t', function(req, res) {
