@@ -19,29 +19,12 @@
 
 
 
-<script>
 
-var x = document.getElementById("demo");
-
-function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
-}
-
-function showPosition(position) {
-  x.innerHTML = "Latitude: " + position.coords.latitude +
-  "<br>Longitude: " + position.coords.longitude;
-}
-getLocation();
-</script>
 
 
 
             <div class="intro">
-                <h2 class="text-center"><%=hd%></h2>
+                <h2 class="text-center"><%=hd%> near <%=oho%></h2>
                 <p class="text-center" id="demo"></p>
             </div>
             <div class="row articles">
