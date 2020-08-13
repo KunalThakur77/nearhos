@@ -50,8 +50,8 @@
 }
 
 .article-list .item {
-  padding-top: 50px;
-  min-height: 425px;
+  padding-top: 5px;
+
   text-align: center;
 }
 
@@ -71,7 +71,7 @@
 .article-list .item .action {
   font-size: 24px;
   width: 24px;
-  margin: 22px auto 0;
+  margin: 5px auto 0;
   line-height: 1;
   display: block;
   color: #4f86c3;

@@ -56,7 +56,7 @@ app.post("/f",function(req,res){
     .then(function(respo){
       const ci = respo.data.city
       const zi = respo.data.zip
-    axios.get('http://dev.virtualearth.net/REST/V1/Routes/LocalInsights?waypoint='+ci+'&postalcode='+zi+'&TravelMode=Driving&Optimize=time&MaxTime=20&TimeUnit=Minute&type=Hospitals&key=Akm-NUKYwLBqtU3z7n7uftlnRXC6iv55a9VqDZEkxLas1QkYTQeOTn3Isr0MRP9w')
+    axios.get('http://dev.virtualearth.net/REST/V1/Routes/LocalInsights?waypoint='+ci+'&postalcode='+zi+'&TravelMode=Driving&Optimize=time&MaxTime=40&TimeUnit=Minute&type=Hospitals&key=Akm-NUKYwLBqtU3z7n7uftlnRXC6iv55a9VqDZEkxLas1QkYTQeOTn3Isr0MRP9w')
     .then(function (response) {
       const heading=response.data.resourceSets[0].resources[0].categoryTypeResults[0].categoryTypeSummary
       const base = response.data.resourceSets[0].resources[0].categoryTypeResults[0].entities
