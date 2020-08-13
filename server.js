@@ -13,7 +13,6 @@ app.listen( process.env.PORT ||3000,function(){
 app.get('/', function(req, res) {
   axios.get('http://api.ipstack.com/check?access_key=47692fd4f78ff8a355e5479f6f976edf')
   .then(function(respo){
-    console.log(respo.data.city)
     const ci = respo.data.city
     const zi = respo.data.zip
   axios.get('http://dev.virtualearth.net/REST/V1/Routes/LocalInsights?waypoint='+ci+'&postalcode='+zi+'&TravelMode=Driving&Optimize=time&MaxTime=20&TimeUnit=Minute&type=Hospitals&key=Akm-NUKYwLBqtU3z7n7uftlnRXC6iv55a9VqDZEkxLas1QkYTQeOTn3Isr0MRP9w')
