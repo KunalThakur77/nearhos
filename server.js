@@ -11,6 +11,23 @@ app.listen( process.env.PORT ||3000,function(){
 });
 
 app.get('/', function(req, res) {
+  axios({
+    "method":"GET",
+    "url":"https://apility-io-ip-geolocation-v1.p.rapidapi.com/%7Bip%7D",
+    "headers":{
+    "content-type":"application/octet-stream",
+    "x-rapidapi-host":"apility-io-ip-geolocation-v1.p.rapidapi.com",
+    "x-rapidapi-key":"c8ae003968msh5b860412c448e98p1e3983jsn370917ba08f1",
+    "accept":"application/json",
+    "useQueryString":true
+    }
+    })
+    .then((response)=>{
+
+    })
+    .catch((error)=>{
+      console.log(error)
+    })
 //   axios.get('http://api.ipstack.com/check?access_key=47692fd4f78ff8a355e5479f6f976edf')
 //   .then(function(respo){
 //     const ci = respo.data.city
@@ -56,7 +73,7 @@ app.post("/f",function(req,res){
     .then(function(respo){
       const ci = respo.data.city
       const zi = respo.data.zip
-    axios.get('http://dev.virtualearth.net/REST/V1/Routes/LocalInsights?waypoint='+ci+'&postalcode='+zi+'&TravelMode=Driving&Optimize=time&MaxTime=40&TimeUnit=Minute&type=Hospitals&key=Akm-NUKYwLBqtU3z7n7uftlnRXC6iv55a9VqDZEkxLas1QkYTQeOTn3Isr0MRP9w')
+    axios.get('http://dev.virtualearth.net/REST/V1/Routes/LocalInsights?waypoint='+ci+'&postalcode='+zi+'&TravelMode=Driving&Optimize=time&MaxTime=30&TimeUnit=Minute&type=Hospitals&key=Akm-NUKYwLBqtU3z7n7uftlnRXC6iv55a9VqDZEkxLas1QkYTQeOTn3Isr0MRP9w')
     .then(function (response) {
       const heading=response.data.resourceSets[0].resources[0].categoryTypeResults[0].categoryTypeSummary
       const base = response.data.resourceSets[0].resources[0].categoryTypeResults[0].entities
@@ -66,6 +83,39 @@ app.post("/f",function(req,res){
       mza.push(base[i])
   }
   res.render('indexo',{array:mza,hd:heading,oho:ci})
+    })
+    .catch((error)=>{
+      res.render("error")
+    })
+    })
+
+})
+
+
+
+
+
+app.post("/k",function(req,res){
+  const kick = req.body.ip
+  const l = req.body.dek
+    axios.get('http://api.ipstack.com/'+kick+'?access_key=47692fd4f78ff8a355e5479f6f976edf')
+    .then(function(respo){
+      const ci = respo.data.city
+      const zi = respo.data.zip
+    axios.get('http://dev.virtualearth.net/REST/V1/Routes/LocalInsights?waypoint='+l+'&TravelMode=Driving&Optimize=time&MaxTime=30&TimeUnit=Minute&type=Hospitals&key=Akm-NUKYwLBqtU3z7n7uftlnRXC6iv55a9VqDZEkxLas1QkYTQeOTn3Isr0MRP9w')
+    .then(function (response) {
+      const heading=response.data.resourceSets[0].resources[0].categoryTypeResults[0].categoryTypeSummary
+      const base = response.data.resourceSets[0].resources[0].categoryTypeResults[0].entities
+      mza=[]
+      const jj = base.length;
+      for (i = 0; i < base.length; i++) {
+      mza.push(base[i])
+  }
+  res.render('indexo',{array:mza,hd:heading,oho:l})
+
+    })
+    .catch((error)=>{
+      res.render("error")
     })
     })
 
